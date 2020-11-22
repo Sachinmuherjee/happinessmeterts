@@ -1,17 +1,13 @@
-import React from 'react'
-import Smiley from './smiley'
-import '../Assets/Styles/App.css';
+import React from "react";
+import Smiley from "./smiley";
+import "../Assets/Styles/App.css";
 
-
-const App=()=> {
+const App = () => {
   return (
-    <div className="container-fluid">
-      
+    <div>
       <Smiley></Smiley>
-      </div>
-      
-    
-      );
-}
+    </div>
+  );
+};
 
 export default App;

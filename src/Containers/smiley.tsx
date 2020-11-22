@@ -3,7 +3,7 @@ import dubalogo from "../Assets/img/dubalogo.png";
 
 const smiley = () => {
   return (
-    <div>
+    <div className="container-fluid">
       {" "}
       <div className="container-fluid">
         <div className="row">
