@@ -1,0 +1,315 @@
+/* LESS Document */
+.firstclass {
+  height: 900px !important;
+}
+.clikbtn {
+  position: relative;
+}
+.clikbtn .clickable {
+  position: absolute;
+  bottom: 0px;
+}
+body {
+  text-align: inherit;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+.topsection {
+  height: 800px;
+}
+.dropbtn {
+  background-color: #3498DB;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+.dropup {
+  position: relative;
+  display: inline-block;
+}
+.dropup-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  bottom: 50px;
+  z-index: 1;
+}
+.dropup-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.dropup-content a:hover {
+  background-color: #cccccc;
+}
+.dropup:hover .dropup-content {
+  display: block;
+}
+.dropup:hover .dropbtn {
+  background-color: #2980B9;
+  transition: 6.5;
+}
+.clickpopup {
+  background: transparent;
+  border: transparent;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+}
+svg {
+  fill: #830823;
+}
+svg path {
+  fill: #830823;
+}
+svg circle {
+  fill: #830823;
+}
+svg rect {
+  fill: #830823;
+}
+svg text {
+  fill: #830823;
+}
+#hm_launcher g path {
+  fill: white;
+}
+.hapmeterlogos {
+  text-align: center;
+}
+#exampleModalCenter .close {
+  padding: 0px;
+  margin: -34px -30px 0px 0px;
+  background: #830823;
+  height: 34px;
+  width: 34px;
+  border-radius: 50%;
+  color: #fff;
+  border: 3px solid #fff;
+  z-index: 99999;
+  opacity: 1;
+  position: absolute;
+  right: 15px;
+}
+#exampleModalCenter .hapmetexthds {
+  font-family: dubai;
+  font-size: 47px;
+  font-weight: 400;
+  line-height: 79px;
+  text-align: center;
+  color: #000;
+}
+#exampleModalCenter .modal-header {
+  border-bottom: 0px !important;
+}
+#exampleModalCenter .modal-header span {
+  position: absolute;
+  top: -2px;
+  left: 7px;
+}
+.btn-primary:hover {
+  background: transparent !important;
+  border: transparent !important;
+  box-shadow: none !important;
+}
+.btn-primary:focus {
+  background: transparent !important;
+  border: transparent !important;
+  box-shadow: none !important;
+}
+.clickpopup:hover {
+  background: transparent !important;
+  border: transparent !important;
+  box-shadow: none !important;
+}
+/*<!--Second Modal css-->*/
+.modal .close {
+  padding: 0px;
+  margin: -34px -30px 0px 0px;
+  background: #830823;
+  height: 34px;
+  width: 34px;
+  border-radius: 50%;
+  color: #fff;
+  border: 3px solid #fff;
+  z-index: 99999;
+  opacity: 1;
+  position: absolute;
+  right: 15px;
+}
+#secondModalCenter .modal-header {
+  border-bottom: 0px !important;
+  padding: 10px !important;
+}
+#secondModalCenter .modal-header span {
+  position: absolute;
+  top: -2px;
+  left: 7px;
+}
+#secondModalCenter .Secondhapmeterlogos {
+  text-align: right !important;
+}
+#secondModalCenter .supptitle {
+  text-align: center;
+  font-size: 37px;
+  font-weight: 400;
+  font-family: dubai;
+  color: #830823;
+  line-height: 63px;
+}
+#secondModalCenter .secinners {
+  padding: 10px 0px;
+}
+#secondModalCenter .secinners .supsubtile {
+  font-size: 20px;
+  font-weight: 400;
+  font-family: dubai;
+  color: #830823;
+  line-height: 39px;
+}
+#secondModalCenter .secinners .custom-control-label.radcustom {
+  font-size: 18px;
+  font-weight: 400;
+  font-family: dubai;
+  line-height: 30px;
+}
+#secondModalCenter .modal-footer {
+  padding: 20px 0px;
+}
+#secondModalCenter .modal-footer .thbtncol {
+  font-size: 18px;
+  font-weight: 400;
+  font-family: dubai;
+  line-height: 34px;
+  background: #830823;
+  border: none;
+  padding: 4px 20px;
+}
+/*<!--Third Modal section-->*/
+#thirdModalCenter .modal-header {
+  border-bottom: 0px !important;
+  padding: 10px !important;
+}
+#thirdModalCenter .modal-header span {
+  position: absolute;
+  top: -2px;
+  left: 7px;
+}
+#thirdModalCenter .Secondhapmeterlogos {
+  text-align: right !important;
+}
+#thirdModalCenter .feedtitle {
+  text-align: center;
+  font-size: 37px;
+  font-weight: 400;
+  font-family: dubai;
+  color: #830823;
+  line-height: 63px;
+}
+#thirdModalCenter #telephone {
+  height: 50px;
+}
+/*<!--Third Modal section-->*/
+.modal-footer .thbtncol {
+  font-size: 18px;
+  font-weight: 400;
+  font-family: dubai;
+  line-height: 34px;
+  background: #830823;
+  border: none;
+  padding: 4px 20px;
+}
+.modal-content {
+  border-radius: 12px !important;
+}
+/*Fourth Modal section css*/
+#fourthModalCenter .modal-header {
+  border-bottom: 0px !important;
+  padding: 10px !important;
+}
+#fourthModalCenter .modal-header span {
+  position: absolute;
+  top: -2px;
+  left: 7px;
+}
+#fourthModalCenter .thanksstitle {
+  font-size: 74px;
+  font-weight: 600;
+  font-family: dubai;
+  line-height: 80px;
+  color: #830823;
+  text-align: center;
+}
+#fourthModalCenter .thanksstitlesec {
+  font-size: 60px;
+  font-weight: 400;
+  font-family: dubai;
+  line-height: 80px;
+  color: #830823;
+  text-align: center;
+}
+#exampleModalCenter .modal-body svg {
+  margin-bottom: 30px;
+}
+#thirdmodelfourth {
+  text-align: right;
+}
+#fourthModalCenter .Secondhapmeterlogos {
+  text-align: right !important;
+}
+.hapmeterlogos span {
+  width: 166px;
+  height: 166px;
+  display: table;
+  margin: auto;
+  transition: all ease .5s;
+}
+.hapmeterlogos span:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+html[dir="rtl"] .ml-auto,
+html[dir="rtl"] .mx-auto {
+  margin-right: auto !important;
+  margin-left: 0px !important;
+}
+html[dir="rtl"] #secondModalCenter .Secondhapmeterlogos {
+  margin-right: 40px !important;
+}
+html[dir="rtl"] #thirdmodel {
+  margin-right: 40px !important;
+}
+html[dir="rtl"] #secondModalCenter .secinners {
+  text-align: right !important;
+}
+.modal-backdrop.show {
+  opacity: .8;
+  background-color: #05050f;
+}
+body[dir="rtl"] #secondModalCenter .Secondhapmeterlogos {
+  text-align: left !important;
+}
+body[dir="rtl"] .modal-footer .text-right {
+  text-align: left !important;
+}
+body[dir="rtl"] .ml-auto,
+.mx-auto {
+  margin-right: auto !important;
+  margin-left: inherit !important;
+}
+body[dir="rtl"] .custom-control-input {
+  position: relative;
+}
+body[dir="rtl"] .custom-control-label::after {
+  right: -1.5rem;
+}
+body[dir="rtl"] .custom-control-label::before {
+  right: -1.5rem;
+}
