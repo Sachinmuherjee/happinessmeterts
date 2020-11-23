@@ -1,9 +1,10 @@
-import Header from "./Header";
+// import Header from "./Header";
 import Question from "./Question";
+import React from "react";
 
-const Questions = (props) => {
+const Questions = () => {
   return (
-    <div>
+    <div id="secondModalCenter">
       {/* <Header></Header> */}
       <div className="container">
         <div className="row">
