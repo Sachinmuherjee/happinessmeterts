@@ -1,5 +1,5 @@
 import React from "react";
-
+import Answer from "./Answer";
 const Question = () => {
   return (
     <div className="panel panel-default">
@@ -17,6 +17,16 @@ const Question = () => {
             <div className="supsubtile"> Website / Application Design </div>
           </a>
         </h4>
+      </div>
+      <div
+        id="collapseOne"
+        className="panel-collapse collapse"
+        role="tabpanel"
+        aria-labelledby="headingOne"
+      >
+        <div className="panel-body">
+          <Answer></Answer>
+        </div>
       </div>
     </div>
   );

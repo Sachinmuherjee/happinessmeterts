@@ -133,15 +133,14 @@ const smiley = () => {
                     fill="#89223a"
                   />
                 </svg>
-              </a>{" "}
+              </a>
             </div>
           </div>
         </div>
         <div className="row mt-5 mb-5">
           <div className="col-lg-12 col-md-12">
             <div className="hapmetexthds text-center">
-              {" "}
-              How was your experience?{" "}
+              How was your experience?
             </div>
           </div>
         </div>

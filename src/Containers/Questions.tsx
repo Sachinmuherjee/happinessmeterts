@@ -1,7 +1,7 @@
 // import Header from "./Header";
 import Question from "./Question";
 import React from "react";
-
+import Footer from "./Footer";
 const Questions = () => {
   return (
     <div id="secondModalCenter">
@@ -19,6 +19,11 @@ const Questions = () => {
                 <Question></Question>
               </div>
             </div>
+            <Footer
+              showBack={true}
+              showFeedback={true}
+              showFinish={true}
+            ></Footer>
           </div>
         </div>
       </div>
