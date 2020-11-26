@@ -63,21 +63,6 @@ a:hover {
   bottom: 0px;
   left: 0px;
 }
-svg {
-  fill: #830823;
-}
-svg path {
-  fill: #830823;
-}
-svg circle {
-  fill: #830823;
-}
-svg rect {
-  fill: #830823;
-}
-svg text {
-  fill: #830823;
-}
 #hm_launcher g path {
   fill: white;
 }

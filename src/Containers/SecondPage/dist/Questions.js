@@ -1,11 +1,14 @@
 "use strict";
 exports.__esModule = true;
-// import Header from "./Header";
 var Question_1 = require("./Question");
 var react_1 = require("react");
 var Footer_1 = require("../Shared/Footer");
-var Questions = function () {
+var Header_1 = require("../Shared/Header");
+var Questions = function (props) {
+    //const hmData = props.hmdata;
+    //console.log(hmData);
     return (react_1["default"].createElement("div", { id: "secondModalCenter" },
+        react_1["default"].createElement(Header_1["default"], { color: "#09200" }),
         react_1["default"].createElement("div", { className: "container" },
             react_1["default"].createElement("div", { className: "row" },
                 react_1["default"].createElement("div", { className: "col-lg-12 col-md-12" },

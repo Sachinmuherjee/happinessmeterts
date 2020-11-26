@@ -1,12 +1,14 @@
-// import Header from "./Header";
 import Question from "./Question";
 import React from "react";
 import Footer from "../Shared/Footer";
+import Header from "../Shared/Header";
 import { Route } from "react-router-dom";
-const Questions = () => {
+const Questions = (props) => {
+  //const hmData = props.hmdata;
+  //console.log(hmData);
   return (
     <div id="secondModalCenter">
-      {/* <Header></Header> */}
+      <Header color="#09200"></Header>
       <div className="container">
         <div className="row">
           <div className="col-lg-12 col-md-12">
