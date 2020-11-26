@@ -1,7 +1,8 @@
 // import Header from "./Header";
 import Question from "./Question";
 import React from "react";
-import Footer from "./Footer";
+import Footer from "../Shared/Footer";
+import { Route } from "react-router-dom";
 const Questions = () => {
   return (
     <div id="secondModalCenter">

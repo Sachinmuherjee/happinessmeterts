@@ -27,7 +27,7 @@ var App = function () {
                 tagTexts: publicHmsKey.tagText,
                 hmServiceQuestion: publicHmsKey.hmQuestionAnswer
             });
-            console.log(hmData);
+            //console.log(hmData);
         });
     }, []);
     return (react_1["default"].createElement("div", null,
