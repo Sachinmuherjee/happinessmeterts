@@ -11,7 +11,9 @@ const Smiley = (props) => {
     tagTexts: null,
     hmServiceQuestion: null,
   });
-
+  const param = useState({
+    servicekey: paramsData.servicekey,
+  });
   useEffect(() => {
     axios
       .get("/public-hmdata", {
@@ -28,7 +30,8 @@ const Smiley = (props) => {
           hmServiceQuestion: publicHmsKey.hmQuestionAnswer,
         });
       });
-  }, [paramsData]);
+  }, [paramsData, hmData]);
+
   return (
     <div className="container-fluid">
       <Header
@@ -43,10 +46,8 @@ const Smiley = (props) => {
               <Link
                 to={{
                   pathname: "/questions",
+                  state: hmData,
                 }}
-                hmdata={hmData.hmServiceData}
-                hmquestion={hmData.hmServiceQuestion}
-                hmtags={hmData.tagTexts}
                 id="clikbnicon"
               >
                 <svg

@@ -5,7 +5,11 @@ const Footer = (props) => {
   if (props.showBack) {
     Back = (
       <div className="">
-        <button type="button" className="btn btn-secondary thbtncol">
+        <button
+          type="button"
+          className="btn btn-secondary thbtncol"
+          style={{ backgroundColor: props.color }}
+        >
           Back
         </button>
       </div>
@@ -20,6 +24,7 @@ const Footer = (props) => {
         data-dismiss="modal"
         data-toggle="modal"
         data-target="#thirdModalCenter"
+        style={{ backgroundColor: props.color }}
       >
         Share Your Feedback
       </button>
@@ -31,6 +36,7 @@ const Footer = (props) => {
         type="button"
         className="btn btn-secondary thbtncol"
         data-dismiss="modal"
+        style={{ backgroundColor: props.color }}
       >
         Finish
       </button>

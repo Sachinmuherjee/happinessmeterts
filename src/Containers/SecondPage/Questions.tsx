@@ -1,14 +1,54 @@
 import Question from "./Question";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Footer from "../Shared/Footer";
 import Header from "../Shared/Header";
 import { Route } from "react-router-dom";
 const Questions = (props) => {
-  //const hmData = props.hmdata;
-  //console.log(hmData);
+  console.log(props);
+  const [hmData, sethmData] = useState({
+    hmservicedata: props.location.state.hmServiceData,
+    tagtext: props.location.state.tagTexts,
+    hmquestion: props.location.state.hmServiceQuestion,
+  });
+  let questionId = hmData.hmquestion[0].questionId;
+  let ansList = [];
+  const questions = hmData.hmquestion.map((question, index, arr) => {
+    if (question.questionId === questionId) {
+      ansList.push(question);
+    } else {
+      let ob = (
+        <Question
+          anslist={ansList}
+          questionid={questionId}
+          key={questionId}
+          questiontext={question.questionText}
+          tagtext={hmData.tagtext}
+          color={hmData.hmservicedata.color}
+        ></Question>
+      );
+      ansList = [];
+      return ob;
+    }
+    if (index === arr.length - 1) {
+      return (
+        <Question
+          anslist={ansList}
+          questionid={questionId}
+          key={questionId}
+          questiontext={question.questionText}
+          tagtext={hmData.tagtext}
+        ></Question>
+      );
+    }
+  });
+
   return (
     <div id="secondModalCenter">
-      <Header color="#09200"></Header>
+      <Header
+        color={
+          hmData.hmservicedata != null ? hmData.hmservicedata.color : "#09200"
+        }
+      ></Header>
       <div className="container">
         <div className="row">
           <div className="col-lg-12 col-md-12">
@@ -19,13 +59,18 @@ const Questions = (props) => {
                 role="tablist"
                 aria-multiselectable="true"
               >
-                <Question></Question>
+                {questions}
               </div>
             </div>
             <Footer
               showBack={true}
               showFeedback={true}
               showFinish={true}
+              color={
+                hmData.hmservicedata != null
+                  ? hmData.hmservicedata.color
+                  : "#09200"
+              }
             ></Footer>
           </div>
         </div>

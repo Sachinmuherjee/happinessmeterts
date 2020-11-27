@@ -12,6 +12,9 @@ var Smiley = function (props) {
         tagTexts: null,
         hmServiceQuestion: null
     }), hmData = _a[0], sethmData = _a[1];
+    var param = react_1.useState({
+        servicekey: paramsData.servicekey
+    });
     react_1.useEffect(function () {
         axios_1["default"]
             .get("/public-hmdata", {
@@ -28,7 +31,7 @@ var Smiley = function (props) {
                 hmServiceQuestion: publicHmsKey.hmQuestionAnswer
             });
         });
-    }, [paramsData]);
+    }, [paramsData, hmData]);
     return (react_1["default"].createElement("div", { className: "container-fluid" },
         react_1["default"].createElement(Header_1["default"], { color: hmData.hmServiceData == null ? "#830823" : hmData.hmServiceData.color }),
         react_1["default"].createElement("div", { className: "container" },
@@ -36,8 +39,9 @@ var Smiley = function (props) {
                 react_1["default"].createElement("div", { className: "col-lg-4 col-md-4  text-center" },
                     react_1["default"].createElement("div", null,
                         react_1["default"].createElement(react_router_dom_1.Link, { to: {
-                                pathname: "/questions"
-                            }, hmdata: hmData.hmServiceData, hmquestion: hmData.hmServiceQuestion, hmtags: hmData.tagTexts, id: "clikbnicon" },
+                                pathname: "/questions",
+                                state: hmData
+                            }, id: "clikbnicon" },
                             react_1["default"].createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "166.675", height: "166.675", viewBox: "0 0 166.675 166.675" },
                                 react_1["default"].createElement("path", { "data-name": "Path 1", d: "M99.338,16a83.338,83.338,0,1,0,83.338,83.338A83.583,83.583,0,0,0,99.338,16Zm0,156.871a73.533,73.533,0,1,1,73.533-73.533A73.749,73.749,0,0,1,99.338,172.871Z", transform: "translate(-16 -16)", fill: hmData.hmServiceData == null
                                         ? "#830823"

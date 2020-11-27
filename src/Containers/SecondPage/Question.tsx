@@ -1,6 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import Answer from "./Answer";
-const Question = () => {
+const Question = (props) => {
+  let anslist = props.anslist;
+  let questionid = props.questionid;
+  let questiontext = props.questiontext;
+  let tagtext = props.tagtext;
+  const answers = anslist.map((answer) => {
+    return (
+      <Answer
+        reasonid={answer.reasonId}
+        reasontext={answer.reasonText}
+        questionid={answer.questionId}
+      ></Answer>
+    );
+  });
+
   return (
     <div className="panel panel-default">
       <div className="panel-heading" role="tab" id="headingOne">
@@ -14,7 +28,14 @@ const Question = () => {
             aria-controls="collapseOne"
           >
             <i className="more-less glyphicon glyphicon-plus"></i>
-            <div className="supsubtile"> Website / Application Design </div>
+            <div
+              className="supsubtile"
+              style={{
+                backgroundColor: props.color,
+              }}
+            >
+              {questiontext}
+            </div>
           </a>
         </h4>
       </div>
