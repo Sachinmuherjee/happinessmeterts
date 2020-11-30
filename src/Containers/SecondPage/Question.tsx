@@ -1,37 +1,62 @@
-import React, { useState } from "react";
+import React from "react";
 import Answer from "./Answer";
+import { connect } from "react-redux";
+
 const Question = (props) => {
   let anslist = props.anslist;
-  let questionid = props.questionid;
+  // let ansResultList = [];
+  const ansChangeHandler = (evt, questionId, reasonId) => {
+    //console.log(evt, questionId, reasonId);
+    let ob = { reasonId: reasonId, questionId: questionId };
+    if (evt.target.checked) {
+      props.ansResultList.push(ob);
+    } else {
+      props.ansResultList = props.ansResultList.filter(
+        (x) => x.reasonId !== reasonId
+      );
+    }
+    props.onUpdateAnsList(props.ansResultList);
+    return true;
+    //console.log(ansResultList);
+  };
   let questiontext = props.questiontext;
-  let tagtext = props.tagtext;
+
   const answers = anslist.map((answer) => {
     return (
       <Answer
         reasonid={answer.reasonId}
         reasontext={answer.reasonText}
         questionid={answer.questionId}
+        key={answer.reasonId}
+        changed={ansChangeHandler}
+        isChecked={props.ansResultList.some(
+          (x) => x.reasonId === answer.reasonId
+        )}
       ></Answer>
     );
   });
 
   return (
     <div className="panel panel-default">
-      <div className="panel-heading" role="tab" id="headingOne">
+      <div
+        className="panel-heading"
+        role="tab"
+        id={"heading" + props.questionid}
+      >
         <h4 className="panel-title">
           <a
             role="button"
             data-toggle="collapse"
             data-parent="#accordion"
-            href="#collapseOne"
+            href={"#collapse" + props.questionid}
             aria-expanded="true"
-            aria-controls="collapseOne"
+            aria-controls={"collapse" + props.questionid}
           >
             <i className="more-less glyphicon glyphicon-plus"></i>
             <div
               className="supsubtile"
               style={{
-                backgroundColor: props.color,
+                color: props.color,
               }}
             >
               {questiontext}
@@ -40,16 +65,26 @@ const Question = (props) => {
         </h4>
       </div>
       <div
-        id="collapseOne"
+        id={"collapse" + props.questionid}
         className="panel-collapse collapse"
         role="tabpanel"
-        aria-labelledby="headingOne"
+        aria-labelledby={"heading" + props.questionid}
       >
-        <div className="panel-body">
-          <Answer></Answer>
-        </div>
+        <div className="panel-body">{answers}</div>
       </div>
     </div>
   );
 };
-export default Question;
+const mapStateToProps = (state) => {
+  return {
+    ansResultList: state.reviewData.answerList,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onUpdateAnsList: (anslist) =>
+      dispatch({ type: "UPDATEANSLIST", value: anslist }),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Question);

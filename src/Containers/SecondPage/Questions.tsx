@@ -1,53 +1,92 @@
 import Question from "./Question";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Footer from "../Shared/Footer";
 import Header from "../Shared/Header";
 import { Route } from "react-router-dom";
+
 const Questions = (props) => {
-  console.log(props);
-  const [hmData, sethmData] = useState({
-    hmservicedata: props.location.state.hmServiceData,
-    tagtext: props.location.state.tagTexts,
-    hmquestion: props.location.state.hmServiceQuestion,
-  });
-  let questionId = hmData.hmquestion[0].questionId;
+  let hmservicedata = props.location.state.hmServiceData;
+  let tagtext = props.location.state.tagTexts;
+  let hmquestion = props.location.state.hmServiceQuestion;
+
+  let questionId = hmquestion[0].questionId;
   let ansList = [];
-  const questions = hmData.hmquestion.map((question, index, arr) => {
-    if (question.questionId === questionId) {
-      ansList.push(question);
+  const questions = [];
+  let i;
+  for (i = 0; i < hmquestion.length; i++) {
+    if (hmquestion[i].questionId === questionId) {
+      ansList.push(hmquestion[i]);
     } else {
+      questionId = hmquestion[i].questionId;
+      i--;
       let ob = (
         <Question
           anslist={ansList}
-          questionid={questionId}
-          key={questionId}
-          questiontext={question.questionText}
-          tagtext={hmData.tagtext}
-          color={hmData.hmservicedata.color}
+          questionid={hmquestion[i].questionId}
+          key={hmquestion[i].questionId}
+          questiontext={hmquestion[i].questionText}
+          tagtext={tagtext}
+          color={hmservicedata.color}
         ></Question>
       );
+      questions.push(ob);
       ansList = [];
-      return ob;
     }
-    if (index === arr.length - 1) {
-      return (
-        <Question
-          anslist={ansList}
-          questionid={questionId}
-          key={questionId}
-          questiontext={question.questionText}
-          tagtext={hmData.tagtext}
-        ></Question>
-      );
-    }
-  });
+  }
+  if (ansList.length > 0) {
+    i--;
+    let ob = (
+      <Question
+        anslist={ansList}
+        questionid={hmquestion[i].questionId}
+        key={hmquestion[i].questionId}
+        questiontext={hmquestion[i].questionText}
+        tagtext={tagtext}
+        color={hmservicedata.color}
+      ></Question>
+    );
+    questions.push(ob);
+  }
+
+  // const questions = hmquestion.map((question, index, arr) => {
+  //   if (question.questionId === questionId) {
+  //     ansList.push(question);
+  //   }
+  //   if (question.questionId !== questionId || index === arr.length - 1) {
+  //     let questionData = ansList[0];
+  //     let ob = (
+  //       <Question
+  //         anslist={ansList}
+  //         questionid={questionData.questionId}
+  //         key={questionData.questionId}
+  //         questiontext={questionData.questionText}
+  //         tagtext={tagtext}
+  //         color={hmservicedata.color}
+  //       ></Question>
+  //     );
+  //     ansList = [];
+  //     ansList.push(question);
+  //     questionId = question.questionId;
+  //     return ob;
+  //   }
+  //   // if (index === arr.length - 1) {
+  //   //   return (
+  //   //     <Question
+  //   //       anslist={ansList}
+  //   //       questionid={question.questionId}
+  //   //       key={question.questionId}
+  //   //       questiontext={question.questionText}
+  //   //       tagtext={tagtext}
+  //   //       color={hmservicedata.color}
+  //   //     ></Question>
+  //   //   );
+  //   // }
+  // });
 
   return (
     <div id="secondModalCenter">
       <Header
-        color={
-          hmData.hmservicedata != null ? hmData.hmservicedata.color : "#09200"
-        }
+        color={hmservicedata != null ? hmservicedata.color : "#09200"}
       ></Header>
       <div className="container">
         <div className="row">
@@ -66,11 +105,8 @@ const Questions = (props) => {
               showBack={true}
               showFeedback={true}
               showFinish={true}
-              color={
-                hmData.hmservicedata != null
-                  ? hmData.hmservicedata.color
-                  : "#09200"
-              }
+              color={hmservicedata != null ? hmservicedata.color : "#09200"}
+              obj={{ ...props }}
             ></Footer>
           </div>
         </div>

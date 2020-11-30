@@ -23,8 +23,10 @@ var Answer = function (props) {
     //   AnswerList.push(ans);
     // }
     return (react_1["default"].createElement("div", { className: "formtext" },
-        react_1["default"].createElement("div", { className: "custom-control custom-radio" },
-            react_1["default"].createElement("input", { type: "radio", id: "customRadio" + props.reasonid, name: "customRadio" + props.reasonid, className: "custom-control-input" }),
+        react_1["default"].createElement("div", { className: "custom-control custom-checkbox" },
+            react_1["default"].createElement("input", { type: "checkbox", id: "customRadio" + props.reasonid, name: "customRadioq" + props.questionid, className: "custom-control-input", onClick: function (evt) {
+                    return props.changed(evt, props.questionid, props.reasonid);
+                }, defaultChecked: props.isChecked }),
             react_1["default"].createElement("label", { className: "custom-control-label radcustom", htmlFor: "customRadio" + props.reasonid }, props.reasontext))));
 };
 exports["default"] = Answer;

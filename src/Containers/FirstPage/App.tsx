@@ -1,9 +1,8 @@
 import Smiley from "./smiley";
 import Questions from "../SecondPage/Questions";
 import Improve from "../ThirdPage/Improve";
-import React from "react";
-
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import React from "react";
 
 const App = () => {
   return (

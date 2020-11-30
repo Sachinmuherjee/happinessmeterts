@@ -23,12 +23,16 @@ const Answer = (props) => {
   // }
   return (
     <div className="formtext">
-      <div className="custom-control custom-radio">
+      <div className="custom-control custom-checkbox">
         <input
-          type="radio"
+          type="checkbox"
           id={"customRadio" + props.reasonid}
-          name={"customRadio" + props.reasonid}
+          name={"customRadioq" + props.questionid}
           className="custom-control-input"
+          onClick={(evt) =>
+            props.changed(evt, props.questionid, props.reasonid)
+          }
+          defaultChecked={props.isChecked}
         />
         <label
           className="custom-control-label radcustom"

@@ -8,11 +8,18 @@ import "jquery";
 import "popper.js";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "./Assets/css/dist/pop_style.css";
+import { createStore } from "redux";
+import Reducer from "./store/reducer";
+import { Provider } from "react-redux";
+
+const store = createStore(Reducer);
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Provider store={store}>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </Provider>,
   document.getElementById("root")
 );
 

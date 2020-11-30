@@ -3,8 +3,8 @@ exports.__esModule = true;
 var smiley_1 = require("./smiley");
 var Questions_1 = require("../SecondPage/Questions");
 var Improve_1 = require("../ThirdPage/Improve");
-var react_1 = require("react");
 var react_router_dom_1 = require("react-router-dom");
+var react_1 = require("react");
 var App = function () {
     return (react_1["default"].createElement(react_router_dom_1.BrowserRouter, null,
         react_1["default"].createElement(react_router_dom_1.Switch, null,
