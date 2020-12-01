@@ -4,23 +4,18 @@ import { connect } from "react-redux";
 
 const Question = (props) => {
   let anslist = props.anslist;
-  // let ansResultList = [];
+  let ansResultList = [...props.ansResultList];
   const ansChangeHandler = (evt, questionId, reasonId) => {
-    //console.log(evt, questionId, reasonId);
     let ob = { reasonId: reasonId, questionId: questionId };
     if (evt.target.checked) {
-      props.ansResultList.push(ob);
+      ansResultList.push(ob);
     } else {
-      props.ansResultList = props.ansResultList.filter(
-        (x) => x.reasonId !== reasonId
-      );
+      ansResultList = ansResultList.filter((x) => x.reasonId !== reasonId);
     }
-    props.onUpdateAnsList(props.ansResultList);
+    props.onUpdateAnsList(ansResultList);
     return true;
-    //console.log(ansResultList);
   };
   let questiontext = props.questiontext;
-
   const answers = anslist.map((answer) => {
     return (
       <Answer

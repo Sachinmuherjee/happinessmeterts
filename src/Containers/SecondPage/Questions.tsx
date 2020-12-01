@@ -48,41 +48,6 @@ const Questions = (props) => {
     questions.push(ob);
   }
 
-  // const questions = hmquestion.map((question, index, arr) => {
-  //   if (question.questionId === questionId) {
-  //     ansList.push(question);
-  //   }
-  //   if (question.questionId !== questionId || index === arr.length - 1) {
-  //     let questionData = ansList[0];
-  //     let ob = (
-  //       <Question
-  //         anslist={ansList}
-  //         questionid={questionData.questionId}
-  //         key={questionData.questionId}
-  //         questiontext={questionData.questionText}
-  //         tagtext={tagtext}
-  //         color={hmservicedata.color}
-  //       ></Question>
-  //     );
-  //     ansList = [];
-  //     ansList.push(question);
-  //     questionId = question.questionId;
-  //     return ob;
-  //   }
-  //   // if (index === arr.length - 1) {
-  //   //   return (
-  //   //     <Question
-  //   //       anslist={ansList}
-  //   //       questionid={question.questionId}
-  //   //       key={question.questionId}
-  //   //       questiontext={question.questionText}
-  //   //       tagtext={tagtext}
-  //   //       color={hmservicedata.color}
-  //   //     ></Question>
-  //   //   );
-  //   // }
-  // });
-
   return (
     <div id="secondModalCenter">
       <Header

@@ -1,23 +1,28 @@
 "use strict";
+var __spreadArrays = (this && this.__spreadArrays) || function () {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
 exports.__esModule = true;
 var react_1 = require("react");
 var Answer_1 = require("./Answer");
 var react_redux_1 = require("react-redux");
 var Question = function (props) {
     var anslist = props.anslist;
-    // let ansResultList = [];
+    var ansResultList = __spreadArrays(props.ansResultList);
     var ansChangeHandler = function (evt, questionId, reasonId) {
-        //console.log(evt, questionId, reasonId);
         var ob = { reasonId: reasonId, questionId: questionId };
         if (evt.target.checked) {
-            props.ansResultList.push(ob);
+            ansResultList.push(ob);
         }
         else {
-            props.ansResultList = props.ansResultList.filter(function (x) { return x.reasonId !== reasonId; });
+            ansResultList = ansResultList.filter(function (x) { return x.reasonId !== reasonId; });
         }
-        props.onUpdateAnsList(props.ansResultList);
+        props.onUpdateAnsList(ansResultList);
         return true;
-        //console.log(ansResultList);
     };
     var questiontext = props.questiontext;
     var answers = anslist.map(function (answer) {

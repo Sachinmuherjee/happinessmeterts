@@ -14,6 +14,10 @@ const Footer = (props) => {
   };
   const onFinishHandler = () => {
     console.log(props.reviewData);
+    props.obj.history.push({
+      pathname: "/thankyou",
+      state: { ...props.obj.location.state },
+    });
   };
   let Back, Feedback, Finish;
   if (props.showBack) {

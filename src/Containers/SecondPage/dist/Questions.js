@@ -40,40 +40,6 @@ var Questions = function (props) {
         var ob = (react_1["default"].createElement(Question_1["default"], { anslist: ansList, questionid: hmquestion[i].questionId, key: hmquestion[i].questionId, questiontext: hmquestion[i].questionText, tagtext: tagtext, color: hmservicedata.color }));
         questions.push(ob);
     }
-    // const questions = hmquestion.map((question, index, arr) => {
-    //   if (question.questionId === questionId) {
-    //     ansList.push(question);
-    //   }
-    //   if (question.questionId !== questionId || index === arr.length - 1) {
-    //     let questionData = ansList[0];
-    //     let ob = (
-    //       <Question
-    //         anslist={ansList}
-    //         questionid={questionData.questionId}
-    //         key={questionData.questionId}
-    //         questiontext={questionData.questionText}
-    //         tagtext={tagtext}
-    //         color={hmservicedata.color}
-    //       ></Question>
-    //     );
-    //     ansList = [];
-    //     ansList.push(question);
-    //     questionId = question.questionId;
-    //     return ob;
-    //   }
-    //   // if (index === arr.length - 1) {
-    //   //   return (
-    //   //     <Question
-    //   //       anslist={ansList}
-    //   //       questionid={question.questionId}
-    //   //       key={question.questionId}
-    //   //       questiontext={question.questionText}
-    //   //       tagtext={tagtext}
-    //   //       color={hmservicedata.color}
-    //   //     ></Question>
-    //   //   );
-    //   // }
-    // });
     return (react_1["default"].createElement("div", { id: "secondModalCenter" },
         react_1["default"].createElement(Header_1["default"], { color: hmservicedata != null ? hmservicedata.color : "#09200" }),
         react_1["default"].createElement("div", { className: "container" },

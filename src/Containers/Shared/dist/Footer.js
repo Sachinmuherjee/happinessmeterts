@@ -26,6 +26,10 @@ var Footer = function (props) {
     };
     var onFinishHandler = function () {
         console.log(props.reviewData);
+        props.obj.history.push({
+            pathname: "/thankyou",
+            state: __assign({}, props.obj.location.state)
+        });
     };
     var Back, Feedback, Finish;
     if (props.showBack) {
