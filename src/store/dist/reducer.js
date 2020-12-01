@@ -15,8 +15,8 @@ exports.__esModule = true;
 var initialState = {
     reviewData: {
         serviceId: null,
-        answerList: [],
         faceId: null,
+        answerList: [],
         userComment: null,
         mobile: null
     }

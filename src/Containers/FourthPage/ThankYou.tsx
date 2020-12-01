@@ -1,4 +1,3 @@
-//import moduleName from 'react'
 import Header from "../Shared/Header";
 import React from "react";
 import emoji from "../../Assets/img/emoji.png";
@@ -21,10 +20,10 @@ const ThankYou = (props) => {
               />
             </div>
             <div className="thanksstitle" style={{ color: color }}>
-              Thank You!{" "}
+              {tagtext["hm_thankyou"]}
             </div>
             <div className="thanksstitlesec mb-5" style={{ color: color }}>
-              For your Participation.{" "}
+              {tagtext["hm_participation"]}
             </div>
           </div>
         </div>

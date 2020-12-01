@@ -15,6 +15,7 @@ var react_1 = require("react");
 //import Improve from "../ThirdPage/Improve";
 var react_redux_1 = require("react-redux");
 var Footer = function (props) {
+    var tagText = props.obj.location.state.tagTexts;
     var backClickHandler = function () {
         props.obj.history.goBack();
     };
@@ -34,13 +35,13 @@ var Footer = function (props) {
     var Back, Feedback, Finish;
     if (props.showBack) {
         Back = (react_1["default"].createElement("div", { className: "" },
-            react_1["default"].createElement("button", { type: "button", className: "btn btn-secondary thbtncol", style: { backgroundColor: props.color }, onClick: function () { return backClickHandler(); } }, "Back")));
+            react_1["default"].createElement("button", { type: "button", className: "btn btn-secondary thbtncol", style: { backgroundColor: props.color }, onClick: function () { return backClickHandler(); } }, tagText["hm_back"])));
     }
     if (props.showFeedback) {
-        Feedback = (react_1["default"].createElement("button", { type: "button", className: "btn btn-secondary thbtncol", href: "#thirdModalCenter", "data-dismiss": "modal", "data-toggle": "modal", "data-target": "#thirdModalCenter", style: { backgroundColor: props.color }, onClick: function () { return showBackClickHandle(); } }, "Share Your Feedback"));
+        Feedback = (react_1["default"].createElement("button", { type: "button", className: "btn btn-secondary thbtncol", "data-dismiss": "modal", "data-toggle": "modal", "data-target": "#thirdModalCenter", style: { backgroundColor: props.color }, onClick: function () { return showBackClickHandle(); } }, tagText["hm_shareyourfeed"]));
     }
     if (props.showFinish) {
-        Finish = (react_1["default"].createElement("button", { type: "button", className: "btn btn-secondary thbtncol", "data-dismiss": "modal", style: { backgroundColor: props.color }, onClick: function () { return onFinishHandler(); } }, "Finish"));
+        Finish = (react_1["default"].createElement("button", { type: "button", className: "btn btn-secondary thbtncol", "data-dismiss": "modal", style: { backgroundColor: props.color }, onClick: function () { return onFinishHandler(); } }, tagText["hm_finish"]));
     }
     return (react_1["default"].createElement("div", { className: "container-fluid p-0" },
         react_1["default"].createElement("div", { className: "row" },
@@ -55,10 +56,4 @@ var mapStateToProps = function (state) {
         reviewData: state.reviewData
     };
 };
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     onUpdateAnsList: (anslist) =>
-//       dispatch({ type: "UPDATEANSLIST", value: anslist }),
-//   };
-// };
 exports["default"] = react_redux_1.connect(mapStateToProps)(Footer);

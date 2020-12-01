@@ -1,13 +1,10 @@
 import React from "react";
 import Footer from "../Shared/Footer";
-import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
 const Improve = (props) => {
-  //console.log(props);
   let hmservicedata = props.location.state.hmServiceData;
   let tagtext = props.location.state.tagTexts;
-  let hmquestion = props.location.state.hmServiceQuestion;
   let color = hmservicedata.color;
   const userCommentChangeHandler = (evt) => {
     props.onUpdateUserComment(evt.target.value);
@@ -20,7 +17,7 @@ const Improve = (props) => {
       <div className="row mt-5">
         <div className="col-lg-12 col-md-12 col-sm-12 col-12">
           <div className="feedtitle" style={{ color: color }}>
-            What Can We Improve?
+            {tagtext["hm_whatcanyouimp"]}
           </div>
         </div>
       </div>
@@ -33,7 +30,7 @@ const Improve = (props) => {
                   <textarea
                     className="form-control"
                     id="exampleFormControlTextarea1"
-                    placeholder="Tell us more..."
+                    placeholder={tagtext["hm_tellusmore"]}
                     rows={6}
                     style={{ resize: "none" }}
                     value={props.reviewData.userComment ?? ""}
@@ -45,7 +42,7 @@ const Improve = (props) => {
                     type="phone"
                     className="form-control "
                     id="telephone"
-                    placeholder="Your Mobile Number (optional)"
+                    placeholder={tagtext["hm_yourmobileopti"]}
                     value={props.reviewData.mobile}
                     onChange={(evt) => mobileChangeHandler(evt)}
                   />

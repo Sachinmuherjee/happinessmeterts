@@ -2,7 +2,7 @@ import Question from "./Question";
 import React from "react";
 import Footer from "../Shared/Footer";
 import Header from "../Shared/Header";
-import { Route } from "react-router-dom";
+//import { Route } from "react-router-dom";
 
 const Questions = (props) => {
   let hmservicedata = props.location.state.hmServiceData;
@@ -47,12 +47,19 @@ const Questions = (props) => {
     );
     questions.push(ob);
   }
-
+  let color = hmservicedata?.color ?? "#09200";
   return (
     <div id="secondModalCenter">
-      <Header
-        color={hmservicedata != null ? hmservicedata.color : "#09200"}
-      ></Header>
+      <Header color={color}></Header>
+      <div className="container">
+        <div className="row mt-5">
+          <div className="col-lg-12 col-md-12 col-sm-12 col-12">
+            <div className="supptitle" style={{ color: color }}>
+              {tagtext["hm_whatmadhapp"]}
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="container">
         <div className="row">
           <div className="col-lg-12 col-md-12">
@@ -70,7 +77,7 @@ const Questions = (props) => {
               showBack={true}
               showFeedback={true}
               showFinish={true}
-              color={hmservicedata != null ? hmservicedata.color : "#09200"}
+              color={color}
               obj={{ ...props }}
             ></Footer>
           </div>

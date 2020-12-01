@@ -15,7 +15,9 @@ var Question_1 = require("./Question");
 var react_1 = require("react");
 var Footer_1 = require("../Shared/Footer");
 var Header_1 = require("../Shared/Header");
+//import { Route } from "react-router-dom";
 var Questions = function (props) {
+    var _a;
     var hmservicedata = props.location.state.hmServiceData;
     var tagtext = props.location.state.tagTexts;
     var hmquestion = props.location.state.hmServiceQuestion;
@@ -40,13 +42,18 @@ var Questions = function (props) {
         var ob = (react_1["default"].createElement(Question_1["default"], { anslist: ansList, questionid: hmquestion[i].questionId, key: hmquestion[i].questionId, questiontext: hmquestion[i].questionText, tagtext: tagtext, color: hmservicedata.color }));
         questions.push(ob);
     }
+    var color = (_a = hmservicedata === null || hmservicedata === void 0 ? void 0 : hmservicedata.color) !== null && _a !== void 0 ? _a : "#09200";
     return (react_1["default"].createElement("div", { id: "secondModalCenter" },
-        react_1["default"].createElement(Header_1["default"], { color: hmservicedata != null ? hmservicedata.color : "#09200" }),
+        react_1["default"].createElement(Header_1["default"], { color: color }),
+        react_1["default"].createElement("div", { className: "container" },
+            react_1["default"].createElement("div", { className: "row mt-5" },
+                react_1["default"].createElement("div", { className: "col-lg-12 col-md-12 col-sm-12 col-12" },
+                    react_1["default"].createElement("div", { className: "supptitle", style: { color: color } }, tagtext["hm_whatmadhapp"])))),
         react_1["default"].createElement("div", { className: "container" },
             react_1["default"].createElement("div", { className: "row" },
                 react_1["default"].createElement("div", { className: "col-lg-12 col-md-12" },
                     react_1["default"].createElement("div", { className: "secinners" },
                         react_1["default"].createElement("div", { className: "panel-group", id: "accordion", role: "tablist", "aria-multiselectable": "true" }, questions)),
-                    react_1["default"].createElement(Footer_1["default"], { showBack: true, showFeedback: true, showFinish: true, color: hmservicedata != null ? hmservicedata.color : "#09200", obj: __assign({}, props) }))))));
+                    react_1["default"].createElement(Footer_1["default"], { showBack: true, showFeedback: true, showFinish: true, color: color, obj: __assign({}, props) }))))));
 };
 exports["default"] = Questions;

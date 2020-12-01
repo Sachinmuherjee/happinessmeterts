@@ -3,6 +3,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 const Footer = (props) => {
+  let tagText = props.obj.location.state.tagTexts;
   const backClickHandler = () => {
     props.obj.history.goBack();
   };
@@ -29,7 +30,7 @@ const Footer = (props) => {
           style={{ backgroundColor: props.color }}
           onClick={() => backClickHandler()}
         >
-          Back
+          {tagText["hm_back"]}
         </button>
       </div>
     );
@@ -39,14 +40,14 @@ const Footer = (props) => {
       <button
         type="button"
         className="btn btn-secondary thbtncol"
-        href="#thirdModalCenter"
+        //href="#thirdModalCenter"
         data-dismiss="modal"
         data-toggle="modal"
         data-target="#thirdModalCenter"
         style={{ backgroundColor: props.color }}
         onClick={() => showBackClickHandle()}
       >
-        Share Your Feedback
+        {tagText["hm_shareyourfeed"]}
       </button>
     );
   }
@@ -59,7 +60,7 @@ const Footer = (props) => {
         style={{ backgroundColor: props.color }}
         onClick={() => onFinishHandler()}
       >
-        Finish
+        {tagText["hm_finish"]}
       </button>
     );
   }
@@ -82,11 +83,5 @@ const mapStateToProps = (state) => {
     reviewData: state.reviewData,
   };
 };
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     onUpdateAnsList: (anslist) =>
-//       dispatch({ type: "UPDATEANSLIST", value: anslist }),
-//   };
-// };
 
 export default connect(mapStateToProps)(Footer);
