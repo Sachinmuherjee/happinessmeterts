@@ -5,12 +5,14 @@ import ThankYou from "../FourthPage/ThankYou";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import React from "react";
 
+//! Authored by Sachin Mukherjee
 const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="">
       <Switch>
+        <Route path="/" component={Smiley}></Route>
         <Route
-          path="/:servicekey/:lang/:mobile"
+          path="/:servicekey/:lang/:mobile?"
           exact
           component={Smiley}
         ></Route>

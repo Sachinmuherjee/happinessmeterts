@@ -1,21 +1,39 @@
 import React, { useEffect, useState } from "react";
 import Header from "../Shared/Header";
-import { Link } from "react-router-dom";
 import axios from "../../axios";
+import { useLocation } from "react-router-dom";
 import { connect } from "react-redux";
 
 const Smiley = (props) => {
   const paramsData = props.match.params;
+  let servicekey;
+  let lang;
+  let mobile;
   //console.log(props.rwd);
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  //console.log(currentPath, searchParams.get("servicekey"));
+  servicekey = searchParams.get("servicekey");
+  lang = searchParams.get("lang");
+  mobile = searchParams.get("mobile");
+  // useEffect(() => {
+  //   const currentPath = location.pathname;
+
+  // }, [location]);
   const [hmData, sethmData] = useState({
     hmServiceData: null,
     tagTexts: [],
     hmServiceQuestion: null,
+    face: null,
   });
 
-  const smileyClickHandler = (faceId) => {
+  const smileyClickHandler = (faceId, text) => {
     props.onUpdateFaceId(faceId);
-    props.history.push("/questions", { ...hmData });
+    if (hmData.hmServiceData.isQuestion) {
+      props.history.push("/questions", { ...hmData, text });
+    } else {
+      props.history.push("/improve", { ...hmData, text });
+    }
   };
   const convertTagTextHandler = (arr) => {
     let newArray = [];
@@ -26,8 +44,8 @@ const Smiley = (props) => {
     axios
       .get("/public-hmdata", {
         params: {
-          serviceKey: paramsData.servicekey,
-          lang: paramsData.lang,
+          serviceKey: servicekey,
+          lang: lang,
         },
       })
       .then((response) => {
@@ -36,9 +54,10 @@ const Smiley = (props) => {
           hmServiceData: publicHmsKey.hmServiceKeydto,
           tagTexts: convertTagTextHandler(publicHmsKey.tagText),
           hmServiceQuestion: publicHmsKey.hmQuestionAnswer,
+          face: publicHmsKey.face,
         });
         props.onUpdateMobileAndServiceId({
-          mobile: paramsData.mobile,
+          mobile: mobile ?? null,
           serviceId: publicHmsKey.hmServiceKeydto.id,
         });
       });
@@ -57,7 +76,12 @@ const Smiley = (props) => {
                   width="166.675"
                   height="166.675"
                   viewBox="0 0 166.675 166.675"
-                  onClick={() => smileyClickHandler(1)}
+                  onClick={() =>
+                    smileyClickHandler(
+                      hmData.face?.happy ?? 1,
+                      hmData.tagTexts["hm_whatmadeyouhapp"]
+                    )
+                  }
                   style={{ cursor: "hand" }}
                 >
                   <path
@@ -94,7 +118,12 @@ const Smiley = (props) => {
                   width="166.675"
                   height="166.675"
                   viewBox="0 0 166.675 166.675"
-                  onClick={() => smileyClickHandler(2)}
+                  onClick={() =>
+                    smileyClickHandler(
+                      hmData.face?.sad ?? 3,
+                      hmData.tagTexts["hm_whatmadeyousad"]
+                    )
+                  }
                   id="clikbnicon2"
                   style={{ cursor: "hand" }}
                 >
@@ -136,7 +165,12 @@ const Smiley = (props) => {
                   width="166.675"
                   height="166.675"
                   viewBox="0 0 166.675 166.675"
-                  onClick={() => smileyClickHandler(3)}
+                  onClick={() =>
+                    smileyClickHandler(
+                      hmData.face?.neutral ?? 2,
+                      hmData.tagTexts["hm_whatcanyouimp"]
+                    )
+                  }
                   id="clikbnicon3"
                   style={{ cursor: "hand" }}
                 >

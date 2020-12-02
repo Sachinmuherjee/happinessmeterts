@@ -8,7 +8,6 @@ const initialState = {
     userComment: null,
     mobile: null,
   },
-  //answerList: [],
 };
 const reducer = (state = initialState, action) => {
   if (action.type === "UPDATEFACEID") {
@@ -34,7 +33,6 @@ const reducer = (state = initialState, action) => {
         ...state.reviewData,
         answerList: action.value,
       },
-      //answerList: action.value,
     };
   }
   if (action.type === "UPDATEUSERCOMMENT") {

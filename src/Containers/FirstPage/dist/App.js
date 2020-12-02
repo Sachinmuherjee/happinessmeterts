@@ -6,10 +6,12 @@ var Improve_1 = require("../ThirdPage/Improve");
 var ThankYou_1 = require("../FourthPage/ThankYou");
 var react_router_dom_1 = require("react-router-dom");
 var react_1 = require("react");
+//! Authored by Sachin Mukherjee
 var App = function () {
-    return (react_1["default"].createElement(react_router_dom_1.BrowserRouter, null,
+    return (react_1["default"].createElement(react_router_dom_1.BrowserRouter, { basename: "" },
         react_1["default"].createElement(react_router_dom_1.Switch, null,
-            react_1["default"].createElement(react_router_dom_1.Route, { path: "/:servicekey/:lang/:mobile", exact: true, component: smiley_1["default"] }),
+            react_1["default"].createElement(react_router_dom_1.Route, { path: "/", component: smiley_1["default"] }),
+            react_1["default"].createElement(react_router_dom_1.Route, { path: "/:servicekey/:lang/:mobile?", exact: true, component: smiley_1["default"] }),
             react_1["default"].createElement(react_router_dom_1.Route, { path: "/questions", component: Questions_1["default"] }),
             react_1["default"].createElement(react_router_dom_1.Route, { path: "/improve", component: Improve_1["default"] }),
             react_1["default"].createElement(react_router_dom_1.Route, { path: "/thankyou", component: ThankYou_1["default"] }))));

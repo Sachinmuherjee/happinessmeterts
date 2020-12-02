@@ -8,6 +8,7 @@ const Questions = (props) => {
   let hmservicedata = props.location.state.hmServiceData;
   let tagtext = props.location.state.tagTexts;
   let hmquestion = props.location.state.hmServiceQuestion;
+  let text = props.location.state.text;
 
   let questionId = hmquestion[0].questionId;
   let ansList = [];
@@ -55,7 +56,7 @@ const Questions = (props) => {
         <div className="row mt-5">
           <div className="col-lg-12 col-md-12 col-sm-12 col-12">
             <div className="supptitle" style={{ color: color }}>
-              {tagtext["hm_whatmadhapp"]}
+              {text}
             </div>
           </div>
         </div>

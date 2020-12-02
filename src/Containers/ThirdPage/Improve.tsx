@@ -17,7 +17,7 @@ const Improve = (props) => {
       <div className="row mt-5">
         <div className="col-lg-12 col-md-12 col-sm-12 col-12">
           <div className="feedtitle" style={{ color: color }}>
-            {tagtext["hm_whatcanyouimp"]}
+            {tagtext["hm_tellusmore"].replace("...", "")}
           </div>
         </div>
       </div>
@@ -43,7 +43,7 @@ const Improve = (props) => {
                     className="form-control "
                     id="telephone"
                     placeholder={tagtext["hm_yourmobileopti"]}
-                    value={props.reviewData.mobile}
+                    value={props.reviewData.mobile ?? ""}
                     onChange={(evt) => mobileChangeHandler(evt)}
                   />
                 </div>

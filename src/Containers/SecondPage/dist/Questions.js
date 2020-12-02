@@ -21,6 +21,7 @@ var Questions = function (props) {
     var hmservicedata = props.location.state.hmServiceData;
     var tagtext = props.location.state.tagTexts;
     var hmquestion = props.location.state.hmServiceQuestion;
+    var text = props.location.state.text;
     var questionId = hmquestion[0].questionId;
     var ansList = [];
     var questions = [];
@@ -48,7 +49,7 @@ var Questions = function (props) {
         react_1["default"].createElement("div", { className: "container" },
             react_1["default"].createElement("div", { className: "row mt-5" },
                 react_1["default"].createElement("div", { className: "col-lg-12 col-md-12 col-sm-12 col-12" },
-                    react_1["default"].createElement("div", { className: "supptitle", style: { color: color } }, tagtext["hm_whatmadhapp"])))),
+                    react_1["default"].createElement("div", { className: "supptitle", style: { color: color } }, text)))),
         react_1["default"].createElement("div", { className: "container" },
             react_1["default"].createElement("div", { className: "row" },
                 react_1["default"].createElement("div", { className: "col-lg-12 col-md-12" },

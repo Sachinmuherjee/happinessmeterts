@@ -12,8 +12,8 @@ var __assign = (this && this.__assign) || function () {
 };
 exports.__esModule = true;
 var react_1 = require("react");
-//import Improve from "../ThirdPage/Improve";
 var react_redux_1 = require("react-redux");
+var axios_1 = require("../../axios");
 var Footer = function (props) {
     var tagText = props.obj.location.state.tagTexts;
     var backClickHandler = function () {
@@ -27,9 +27,26 @@ var Footer = function (props) {
     };
     var onFinishHandler = function () {
         console.log(props.reviewData);
-        props.obj.history.push({
-            pathname: "/thankyou",
-            state: __assign({}, props.obj.location.state)
+        var reviews = props.reviewData;
+        var review = {
+            serviceId: reviews.serviceId,
+            faceId: reviews.faceId,
+            userComment: reviews.userComment,
+            mobile: reviews.mobile
+        };
+        var ans = reviews.answerList;
+        var data = {
+            publicHmsData: JSON.stringify(review),
+            publichmquestion: JSON.stringify(ans)
+        };
+        axios_1["default"].post("/public-hmdata", data).then(function (response) {
+            var isInserted = response.data.isInserted;
+            if (isInserted) {
+                props.obj.history.push({
+                    pathname: "/thankyou",
+                    state: __assign({}, props.obj.location.state)
+                });
+            }
         });
     };
     var Back, Feedback, Finish;

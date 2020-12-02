@@ -1,7 +1,7 @@
 import React from "react";
-//import Improve from "../ThirdPage/Improve";
-import { connect } from "react-redux";
 
+import { connect } from "react-redux";
+import axios from "../../axios";
 const Footer = (props) => {
   let tagText = props.obj.location.state.tagTexts;
   const backClickHandler = () => {
@@ -15,9 +15,26 @@ const Footer = (props) => {
   };
   const onFinishHandler = () => {
     console.log(props.reviewData);
-    props.obj.history.push({
-      pathname: "/thankyou",
-      state: { ...props.obj.location.state },
+    let reviews = props.reviewData;
+    let review = {
+      serviceId: reviews.serviceId,
+      faceId: reviews.faceId,
+      userComment: reviews.userComment,
+      mobile: reviews.mobile,
+    };
+    let ans = reviews.answerList;
+    const data = {
+      publicHmsData: JSON.stringify(review),
+      publichmquestion: JSON.stringify(ans),
+    };
+    axios.post("/public-hmdata", data).then((response) => {
+      let isInserted = response.data.isInserted;
+      if (isInserted) {
+        props.obj.history.push({
+          pathname: "/thankyou",
+          state: { ...props.obj.location.state },
+        });
+      }
     });
   };
   let Back, Feedback, Finish;
