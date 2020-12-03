@@ -10,12 +10,12 @@ const App = () => {
   return (
     <BrowserRouter basename="">
       <Switch>
-        <Route path="/" component={Smiley}></Route>
-        <Route
+        <Route path="/" exact component={Smiley}></Route>
+        {/* <Route
           path="/:servicekey/:lang/:mobile?"
           exact
           component={Smiley}
-        ></Route>
+        ></Route> */}
         <Route path="/questions" component={Questions}></Route>
         <Route path="/improve" component={Improve}></Route>
         <Route path="/thankyou" component={ThankYou}></Route>

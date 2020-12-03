@@ -15,7 +15,6 @@ var Question_1 = require("./Question");
 var react_1 = require("react");
 var Footer_1 = require("../Shared/Footer");
 var Header_1 = require("../Shared/Header");
-//import { Route } from "react-router-dom";
 var Questions = function (props) {
     var _a;
     var hmservicedata = props.location.state.hmServiceData;
@@ -55,6 +54,6 @@ var Questions = function (props) {
                 react_1["default"].createElement("div", { className: "col-lg-12 col-md-12" },
                     react_1["default"].createElement("div", { className: "secinners" },
                         react_1["default"].createElement("div", { className: "panel-group", id: "accordion", role: "tablist", "aria-multiselectable": "true" }, questions)),
-                    react_1["default"].createElement(Footer_1["default"], { showBack: true, showFeedback: true, showFinish: true, color: color, obj: __assign({}, props) }))))));
+                    react_1["default"].createElement(Footer_1["default"], { showBack: true, showFeedback: true, showFinish: false, color: color, obj: __assign({}, props) }))))));
 };
 exports["default"] = Questions;

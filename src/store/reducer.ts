@@ -1,5 +1,3 @@
-//import { isNullOrUndefined } from "util";
-
 const initialState = {
   reviewData: {
     serviceId: null,
@@ -22,7 +20,10 @@ const reducer = (state = initialState, action) => {
     return {
       reviewData: {
         ...state.reviewData,
-        mobile: action.value.mobile,
+        mobile:
+          state.reviewData.mobile == null
+            ? action.value.mobile
+            : state.reviewData.mobile,
         serviceId: action.value.serviceId,
       },
     };

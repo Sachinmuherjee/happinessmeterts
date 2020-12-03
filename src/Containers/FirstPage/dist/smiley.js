@@ -18,20 +18,11 @@ var react_router_dom_1 = require("react-router-dom");
 var react_redux_1 = require("react-redux");
 var Smiley = function (props) {
     var _a, _b;
-    var paramsData = props.match.params;
-    var servicekey;
-    var lang;
-    var mobile;
-    //console.log(props.rwd);
     var location = react_router_dom_1.useLocation();
     var searchParams = new URLSearchParams(location.search);
-    //console.log(currentPath, searchParams.get("servicekey"));
-    servicekey = searchParams.get("servicekey");
-    lang = searchParams.get("lang");
-    mobile = searchParams.get("mobile");
-    // useEffect(() => {
-    //   const currentPath = location.pathname;
-    // }, [location]);
+    var servicekey = searchParams.get("servicekey");
+    var lang = searchParams.get("lang");
+    var mobile = searchParams.get("mobile");
     var _c = react_1.useState({
         hmServiceData: null,
         tagTexts: [],
@@ -73,7 +64,7 @@ var Smiley = function (props) {
                 serviceId: publicHmsKey.hmServiceKeydto.id
             });
         });
-    }, [paramsData]);
+    }, []);
     var color = (_b = (_a = hmData.hmServiceData) === null || _a === void 0 ? void 0 : _a.color) !== null && _b !== void 0 ? _b : "#99bb0";
     return (react_1["default"].createElement("div", { id: "exampleModalCenter" },
         react_1["default"].createElement("div", { className: "container-fluid" },

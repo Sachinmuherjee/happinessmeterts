@@ -1,5 +1,4 @@
 "use strict";
-//import { isNullOrUndefined } from "util";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -30,7 +29,9 @@ var reducer = function (state, action) {
     }
     if (action.type === "UPDATEMOBILEANDSERVICE") {
         return {
-            reviewData: __assign(__assign({}, state.reviewData), { mobile: action.value.mobile, serviceId: action.value.serviceId })
+            reviewData: __assign(__assign({}, state.reviewData), { mobile: state.reviewData.mobile == null
+                    ? action.value.mobile
+                    : state.reviewData.mobile, serviceId: action.value.serviceId })
         };
     }
     if (action.type === "UPDATEANSLIST") {

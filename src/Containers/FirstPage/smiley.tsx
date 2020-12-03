@@ -5,21 +5,13 @@ import { useLocation } from "react-router-dom";
 import { connect } from "react-redux";
 
 const Smiley = (props) => {
-  const paramsData = props.match.params;
-  let servicekey;
-  let lang;
-  let mobile;
-  //console.log(props.rwd);
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
-  //console.log(currentPath, searchParams.get("servicekey"));
-  servicekey = searchParams.get("servicekey");
-  lang = searchParams.get("lang");
-  mobile = searchParams.get("mobile");
-  // useEffect(() => {
-  //   const currentPath = location.pathname;
 
-  // }, [location]);
+  let servicekey = searchParams.get("servicekey");
+  let lang = searchParams.get("lang");
+  let mobile = searchParams.get("mobile");
+
   const [hmData, sethmData] = useState({
     hmServiceData: null,
     tagTexts: [],
@@ -61,7 +53,7 @@ const Smiley = (props) => {
           serviceId: publicHmsKey.hmServiceKeydto.id,
         });
       });
-  }, [paramsData]);
+  }, []);
   let color = hmData.hmServiceData?.color ?? "#99bb0";
   return (
     <div id="exampleModalCenter">

@@ -2,7 +2,6 @@ import Question from "./Question";
 import React from "react";
 import Footer from "../Shared/Footer";
 import Header from "../Shared/Header";
-//import { Route } from "react-router-dom";
 
 const Questions = (props) => {
   let hmservicedata = props.location.state.hmServiceData;
@@ -77,7 +76,7 @@ const Questions = (props) => {
             <Footer
               showBack={true}
               showFeedback={true}
-              showFinish={true}
+              showFinish={false}
               color={color}
               obj={{ ...props }}
             ></Footer>
